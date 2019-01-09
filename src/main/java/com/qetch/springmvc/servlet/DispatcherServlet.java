@@ -38,12 +38,6 @@ public class DispatcherServlet extends HttpServlet {
 			dispatchUrl = controller.handleRequest(req, resp);
 		}
 		
-		if ("product_input.action".equals(action)) {
-			dispatchUrl = "/WEB-INF/jsp/ProductForm.jsp";
-		} else if ("product_save.action".equals(action)) {
-			dispatchUrl = "/WEB-INF/jsp/ProductDetail.jsp";
-		}
-		
 		if (dispatchUrl != null) {
 			RequestDispatcher rd = req.getRequestDispatcher(dispatchUrl);
 			rd.forward(req, resp);

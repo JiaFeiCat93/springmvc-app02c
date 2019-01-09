@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -9,6 +10,16 @@
 <body>
 
 	<div id="global">
+		<c:if test="${requestScope.errors != null}">
+			<p>
+				Error(s)!
+				<ul>
+					<c:forEach var="error" items="${requestScope.errors}">
+						<li>${error}</li>
+					</c:forEach>
+				</ul>
+			</p>
+		</c:if>
 		<form action="product_save.action" method="post">
 			<fieldset>
 				<legend>Add a product</legend>
